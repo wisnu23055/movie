@@ -177,7 +177,11 @@ async function handleRegister() {
       email,
       password,
       options: {
-        emailRedirectTo: window.location.origin
+        emailRedirectTo: `${window.location.origin}${window.location.pathname}`,
+        // Atau jika di root: emailRedirectTo: `${window.location.origin}/index.html`,
+        data: {
+          app_name: 'Movie Watchlist'
+        }
       }
     });
     
@@ -769,10 +773,54 @@ try {
   console.error('Error setting up auth state listener:', err);
 }
 
+// Handle email confirmation from URL
+async function handleEmailConfirmation() {
+  // Cek apakah ada token di URL (dari email confirmation)
+  const hashParams = new URLSearchParams(window.location.hash.substring(1));
+  const accessToken = hashParams.get('access_token');
+  const type = hashParams.get('type');
+  
+  if (accessToken && type === 'signup') {
+    console.log('Email confirmation detected');
+    
+    try {
+      // Set session dengan token dari URL
+      const { data, error } = await supabase.auth.setSession({
+        access_token: accessToken,
+        refresh_token: hashParams.get('refresh_token')
+      });
+      
+      if (error) throw error;
+      
+      // Bersihkan URL dari token
+      window.history.replaceState({}, document.title, window.location.pathname);
+      
+      // Show success message
+      showAuthMessage('Email berhasil dikonfirmasi! Anda sekarang bisa menggunakan aplikasi.', 'success');
+      
+      // Update UI
+      updateAuthUI(data.user);
+      
+      // Auto scroll ke main content
+      setTimeout(() => {
+        document.getElementById('mainContent')?.scrollIntoView({ behavior: 'smooth' });
+      }, 1000);
+      
+    } catch (err) {
+      console.error('Email confirmation error:', err);
+      showAuthMessage('Konfirmasi email gagal. Silakan coba login.', 'error');
+    }
+  }
+}
+
 // Initialize app - update to load featured movies
 (async function init() {
   try {
     console.log('Initializing app...');
+    
+    // Handle email confirmation terlebih dahulu
+    await handleEmailConfirmation();
+    
     const { data: { session } } = await supabase.auth.getSession();
     console.log('Initial session:', session);
     updateAuthUI(session?.user || null);
