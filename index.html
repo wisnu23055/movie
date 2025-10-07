@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Movie Watchlist - Kelola Daftar Film Favorit Anda</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>🎬 Movie Watchlist</h1>
+    <div id="authSection" class="auth-section">
+      <div id="loginForm" class="auth-form">
+        <h3>Login / Register</h3>
+        <div id="authMessage" class="auth-message" style="display: none;"></div>
+        <input type="email" id="emailInput" placeholder="Email" required />
+        <input type="password" id="passwordInput" placeholder="Password" required />
+        <div class="auth-buttons">
+          <button id="loginBtn">Login</button>
+          <button id="registerBtn">Register</button>
+        </div>
+        <div id="confirmationMessage" class="confirmation-message" style="display: none;">
+          <p>📧 Email konfirmasi telah dikirim! Silakan cek inbox dan klik link konfirmasi.</p>
+          <p><small>Belum menerima email? <button id="resendBtn" class="link-button">Kirim ulang</button></small></p>
+        </div>
+      </div>
+      <div id="userInfo" class="user-info" style="display: none;">
+        <span id="userEmail"></span>
+        <button id="logoutBtn">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="heroSection" class="hero-section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Kelola Daftar Film Favorit Anda</h1>
+        <p>Temukan, simpan, dan atur koleksi film yang ingin Anda tonton. Buat watchlist personal Anda dan jangan pernah kehabisan ide untuk film berikutnya!</p>
+        <div class="hero-features">
+          <div class="feature">
+            <span class="feature-icon">🔍</span>
+            <span>Cari Film</span>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">💾</span>
+            <span>Simpan ke Watchlist</span>
+          </div>
+          <div class="feature">
+            <span class="feature-icon">📱</span>
+            <span>Akses Kapan Saja</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="movie-cards-stack">
+          <div class="movie-card-demo card-1"></div>
+          <div class="movie-card-demo card-2"></div>
+          <div class="movie-card-demo card-3"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Movies Section -->
+  <section id="featuredSection" class="featured-section">
+    <div class="container">
+      <h2>🌟 Film Populer Saat Ini</h2>
+      <p class="section-subtitle">Temukan film-film terbaik dan terpopuler</p>
+      <div id="featuredMovies" class="featured-movies">
+        <div class="featured-loading">
+          <div class="loading-spinner"></div>
+          <p>Memuat film populer...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main id="mainContent" style="display: none;">
+    <section class="search">
+      <div class="search-header">
+        <h2>🎯 Cari Film</h2>
+        <p>Temukan film yang ingin Anda tonton</p>
+      </div>
+      <form id="searchForm">
+        <input id="searchInput" type="search" placeholder="Cari film (contoh: Avengers, Titanic, Inception)..." required />
+        <button type="submit">
+          <span>🔍</span>
+          Cari
+        </button>
+      </form>
+    </section>
+
+    <section class="content">
+      <div class="results">
+        <h2>📋 Hasil Pencarian</h2>
+        <ul id="resultsList"></ul>
+      </div>
+
+      <div class="watchlist">
+        <h2>⭐ Watchlist Saya</h2>
+        <ul id="watchlist"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>🎬 Movie Watchlist</h3>
+        <p>Platform untuk mengelola daftar film favorit Anda</p>
+      </div>
+      <div class="footer-section">
+        <h4>Fitur</h4>
+        <ul>
+          <li>Pencarian Film</li>
+          <li>Watchlist Personal</li>
+          <li>Akun Aman</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Data</h4>
+        <ul>
+          <li>Powered by OMDB API</li>
+          <li>Database Supabase</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <small>&copy; 2024 Movie Watchlist. Dibuat dengan ❤️</small>
+    </div>
+  </footer>
+
+  <!-- config harus dimuat sebelum app.js -->
+  <script src="config.js"></script>
+  <!-- Supabase JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
