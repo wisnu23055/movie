@@ -602,50 +602,11 @@ function renderFeaturedMovies(movies) {
           <span class="stars">${starDisplay}</span>
           <span class="rating-text">${movie.imdbRating}/10</span>
         </div>
-        <button class="actions button add" 
-                data-imdb="${movie.imdbID}" 
-                data-title="${movie.Title}" 
-                data-year="${movie.Year}" 
-                data-poster="${movie.Poster}"
-                onclick="addFromFeatured(this)">
-          ✨ Tambah ke Watchlist
-        </button>
       </div>
     `;
     
     featuredContainer.appendChild(movieCard);
   });
-}
-
-// Function to add featured movie to watchlist
-async function addFromFeatured(button) {
-  if (!currentUser) {
-    showAuthMessage('Silakan login terlebih dahulu untuk menambah ke watchlist', 'error');
-    return;
-  }
-  
-  const imdbId = button.dataset.imdb;
-  const title = button.dataset.title;
-  const year = button.dataset.year;
-  const poster = button.dataset.poster;
-  
-  button.textContent = '⏳ Menambahkan...';
-  button.disabled = true;
-  
-  const success = await addToWatchlist(imdbId, title, year, poster);
-  
-  if (success) {
-    button.textContent = '✅ Ditambahkan!';
-    button.style.background = 'linear-gradient(135deg, var(--success), #059669)';
-    setTimeout(() => {
-      button.textContent = '✨ Tambah ke Watchlist';
-      button.disabled = false;
-      button.style.background = '';
-    }, 2000);
-  } else {
-    button.textContent = '✨ Tambah ke Watchlist';
-    button.disabled = false;
-  }
 }
 
 // Event listeners - dengan error handling
@@ -835,6 +796,3 @@ async function handleEmailConfirmation() {
     console.error('Error during app initialization:', err);
   }
 })();
-
-// Make addFromFeatured globally available
-window.addFromFeatured = addFromFeatured;
