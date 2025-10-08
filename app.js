@@ -1,15 +1,6 @@
 const { SUPABASE_URL, SUPABASE_ANON_KEY, OMDB_API_KEY } = window.CONFIG;
 
-// Debug: Cek apakah config berhasil dimuat
-console.log('Config loaded:', { SUPABASE_URL, SUPABASE_ANON_KEY, OMDB_API_KEY });
-
-// Debug: Cek apakah supabase library tersedia
-console.log('Supabase library available:', typeof window.supabase);
-
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-// Debug: Cek apakah supabase berhasil dibuat
-console.log('Supabase client created:', supabase);
 
 const dom = {
   // Auth elements
@@ -33,9 +24,6 @@ const dom = {
   resultsList: document.getElementById('resultsList'),
   watchlist: document.getElementById('watchlist')
 };
-
-// Debug: Cek apakah semua DOM element berhasil ditemukan
-console.log('DOM elements:', dom);
 
 let currentUser = null;
 let pendingConfirmationEmail = null;
