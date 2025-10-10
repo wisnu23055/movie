@@ -518,7 +518,13 @@ const featuredMovies = [
   'Avatar',
   'Joker',
   'Spider-Man: No Way Home',
-  'Top Gun: Maverick'
+  'Top Gun: Maverick',
+  'Sore: Wife from the Future',
+  'Parasite',
+  'The Lord of the Rings: The Return of the King',
+  '500 Days of Summer',
+  'Avengers: Endgame',
+  '5 cm'
 ];
 
 async function loadFeaturedMovies() {
