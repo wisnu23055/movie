@@ -523,7 +523,6 @@ const featuredMovies = [
   'Parasite',
   'The Lord of the Rings: The Return of the King',
   '500 Days of Summer',
-  'Avengers: Endgame',
   '5 cm'
 ];
 
