@@ -503,7 +503,7 @@ async function removeFromWatchlist(id) {
   }
 }
 
-// Featured Movies functionality - UPDATE: Tambah lebih banyak film dan ambil 8
+// Featured Movies functionality diambil 8 dari daftar film dibawah ini
 const featuredMovies = [
   'Avengers: Endgame',
   'The Dark Knight',
