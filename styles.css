@@ -1380,7 +1380,7 @@ html {
   margin: 0 auto 1rem;
 }
 
-/* Pastikan grid pada desktop tetap baik untuk 8 items */
+/* Memastikan  grid pada desktop tetap baik untuk 8 items */
 @media (min-width: 1200px) {
   .featured-movies {
     grid-template-columns: repeat(4, 1fr);
