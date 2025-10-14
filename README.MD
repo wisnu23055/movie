@@ -73,20 +73,6 @@
 
 ---
 
-## 🔑 API Keys
-
-### Supabase
-1. Daftar di [supabase.com](https://supabase.com)
-2. Buat project baru
-3. Ambil URL dan Anon Key dari Settings → API
-
-### OMDB API
-1. Daftar di [omdbapi.com](http://www.omdbapi.com/apikey.aspx)
-2. Verifikasi email
-3. Ambil API Key dari email konfirmasi
-
----
-
 ## 🐛 Troubleshooting
 
 ### Film tidak muncul di watchlist
