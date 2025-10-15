@@ -68,7 +68,7 @@
 - 🌟 Featured movies dengan rating bintang
 - 🎯 Search yang mudah dan responsif
 - 📱 Mobile-friendly design
-- 🎭 Smooth interactions (kecuali watchlist - no animation)
+- 🎭 Smooth interactions 
 - 🌈 Gradient dan modern styling
 
 ---
