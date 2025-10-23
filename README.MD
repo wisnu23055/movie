@@ -4,8 +4,6 @@
 
 ![Movie Watchlist](https://img.shields.io/badge/Movie-Watchlist-blue?style=for-the-badge&logo=imdb)
 ![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
-![Version](https://img.shields.io/badge/Version-1.0.0-orange?style=for-the-badge)
-
 ---
 
 ## ✨ Fitur Utama
@@ -43,7 +41,7 @@
 
 ### 🔍 Mencari Film
 
-1. Setelah login, gunakan search bar
+1. Setelah login, gunakan menu search bar
 2. Ketik judul film (contoh: "Avengers", "Inception")
 3. Klik tombol **Cari** atau tekan Enter
 4. Hasil pencarian akan muncul di sebelah kiri
